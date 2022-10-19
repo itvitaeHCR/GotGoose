@@ -53,12 +53,13 @@ class SpecPanel extends Panel { // 0, 6 | 19 | 31 | 42 | 52 | 58, 63
 }
 
 /**
- * A Goosepanel will take the Dice.lastThrow() value of the player that lands on it, and send the player further that amount of panels.
+ * A Goosepanel will take the Dice.lastThrow() value of the player that lands on it,
+ * and send the player further that amount of panels.
  */
 class GoosePanel extends SpecPanel { // 5 | 9 | 14 | 18 | 23 | 27 | 32 | 36 | 41 | 45 | 50 | 54 | 59
     GoosePanel(byte id) {
         super(id);
-        int walk = Dice.lastThrow();
+        int walk = Dice.lastRoll;
     }
 }
 
