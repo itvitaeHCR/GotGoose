@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // omg dice is working whatt
+        // during WIP phase: check if works
+            // Dice.java
         System.out.println(Dice.lastThrow());   // 2 dice, full throw
         System.out.println(Dice.Throw());       // 1 die, init throw
+            // Board.java
         Board.printBoard();
     }
 }

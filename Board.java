@@ -3,7 +3,7 @@ public class Board {
 
 
     Board() {
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < panels.length; i++) {
             switch (i) {
                 case 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 -> panels[i] = new GoosePanel((byte)(i));
                 case 6, 19, 31, 42, 52, 58 -> panels[i] = new SpecPanel((byte)(i));
@@ -12,16 +12,15 @@ public class Board {
         }
     }
 
-    public static void printBoard() { // getClass = null??
+    public static void printBoard() {
         for (int i = 0; i < panels.length; i++) {
-            if (panels[i].getClass() == SpecPanel.class) {
-                System.out.println("x  ");
-            } else if (panels[i].getClass() == GoosePanel.class) {
-                System.out.println("@  ");
-            } else {
-                System.out.println("O  ");
+            switch (i) {
+            case 6, 19, 31, 42, 52, 58 -> System.out.print("x  ");
+            case 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 -> System.out.print("@  ");
+            default -> System.out.print("O  ");
             }
         }
+        System.out.println();
     }
 
 }
