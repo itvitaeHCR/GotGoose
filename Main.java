@@ -11,8 +11,7 @@ public class Main {
             // Game
         Game.startGame();
             // Player
-        System.out.println(ConsoleColors.RED + "RED COLORED PLAYER" +
-                ConsoleColors.RESET + " COLOR RESET TO NORMAL");
+        System.out.println(ConColor.RED + "RED COLORED PLAYER" + ConColor.RESET + " COLOR RESET TO NORMAL");
     }
 }
 
