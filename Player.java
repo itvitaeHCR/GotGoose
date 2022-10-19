@@ -5,6 +5,7 @@ public class Player {
 
     private final String color;
     private final int initOrder;
+    public String setName;
 
     Player(String color, int initOrder) {
         this.initOrder = initOrder;
@@ -17,7 +18,7 @@ public class Player {
 
 }
 
-class ConColor {
+class ConColor { // found on https://stackoverflow.com/a/45444716
     // Reset
     public static final String RESET = "\033[0m";  // Text Reset
 

@@ -1,7 +1,9 @@
 public class Board {
     static Panel[] panels = new Panel[64];
 
-
+    /**
+     * The Board() constructor creates the game board by generating each panel as a default or special subclass.
+     */
     Board() {
         for (int i = 0; i < panels.length; i++) {
             switch (i) {
@@ -12,6 +14,9 @@ public class Board {
         }
     }
 
+    /**
+     * printBoard() prints the game board by printing specific characters for default and special panels.
+     */
     public static void printBoard() {
         for (int i = 0; i < panels.length; i++) {
             switch (i) {
@@ -25,7 +30,9 @@ public class Board {
 
 }
 
-
+/**
+ * Basic panels on the board are assigned an id, and checks if the panel is already taken by another player.
+ */
 class Panel {
     byte id;
     boolean taken;
@@ -35,6 +42,9 @@ class Panel {
     }
 }
 
+/**
+ * A SpecPanel is a collection of special Panels, each having their own non-default effect on the player.
+ */
 class SpecPanel extends Panel { // 0, 6 | 19 | 31 | 42 | 52 | 58, 63
 
     SpecPanel(byte id) {
@@ -42,6 +52,9 @@ class SpecPanel extends Panel { // 0, 6 | 19 | 31 | 42 | 52 | 58, 63
     }
 }
 
+/**
+ * A Goosepanel will take the Dice.lastThrow() value of the player that lands on it, and send the player further that amount of panels.
+ */
 class GoosePanel extends SpecPanel { // 5 | 9 | 14 | 18 | 23 | 27 | 32 | 36 | 41 | 45 | 50 | 54 | 59
     GoosePanel(byte id) {
         super(id);
