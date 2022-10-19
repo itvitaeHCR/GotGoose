@@ -8,6 +8,11 @@ public class Main {
         System.out.println(Dice.Throw());       // 1 die, init throw
             // Board.java
         Board.printBoard();                     // plain board printed
+            // Game
+        Game.startGame();
+            // Player
+        System.out.println(ConsoleColors.RED + "RED COLORED PLAYER" +
+                ConsoleColors.RESET + " COLOR RESET TO NORMAL");
     }
 }
 
