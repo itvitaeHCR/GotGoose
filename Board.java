@@ -6,7 +6,7 @@ public class Board {
         for (int i = 0; i < panels.length; i++) {
             switch (i) {
                 case 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 -> panels[i] = new GoosePanel((byte)(i));
-                case 6, 19, 31, 42, 52, 58 -> panels[i] = new SpecPanel((byte)(i));
+                case 0, 6, 19, 31, 42, 52, 58, 63 -> panels[i] = new SpecPanel((byte)(i));
                 default -> panels[i] = new Panel((byte)(i));
             }
         }
@@ -16,7 +16,7 @@ public class Board {
         for (int i = 0; i < panels.length; i++) {
             switch (i) {
             case 6, 19, 31, 42, 52, 58 -> System.out.print("x  ");
-            case 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 -> System.out.print("@  ");
+            case 0, 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59, 63 -> System.out.print("@  ");
             default -> System.out.print("O  ");
             }
         }
@@ -35,7 +35,7 @@ class Panel {
     }
 }
 
-class SpecPanel extends Panel { // 6 | 19 | 31 | 42 | 52 | 58
+class SpecPanel extends Panel { // 0, 6 | 19 | 31 | 42 | 52 | 58, 63
 
     SpecPanel(byte id) {
         super(id);

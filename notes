@@ -1,0 +1,41 @@
+- spel
+    > hoeveel spelers
+    > elke speler kiest kleur
+    > speler initiative order (bij gelijke waarden opnieuw gooien)
+    > check welke speler aan de beurt is
+    > check of speler mag gooien (of beurt overslaan, dan volgende speler)
+    > speler gooit
+    > speler verplaatst
+    > evt vakje actie uitvoeren
+    > terug naar welke speler aan de beurt is
+
+- dobbelsteen:
+int laatsteworp
+gooien()
+eerste worp check (3+6) en (4+5)
+
+-bord:
+Vakje[64] vakjes
+
+- speler
+String kleur
+int positie
+boolean gewonnen
+
+
+- vakje
+byte id
+boolean bezet
+pion speler
+loop check (?)
+
+- speciaal vak (extends vakje)
+ganzenvak > dubbel lopen, mag geen gans op blijven staan
+brug > lopen naar x, mag geen gans op blijven staan
+start > meerdere ganzen
+herberg >
+put >
+gevangenis >
+dood > terug naar 0
+finish
+doornstruik >

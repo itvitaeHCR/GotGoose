@@ -7,7 +7,7 @@ public class Main {
         System.out.println(Dice.lastThrow());   // 2 dice, full throw
         System.out.println(Dice.Throw());       // 1 die, init throw
             // Board.java
-        Board.printBoard();
+        Board.printBoard();                     // plain board printed
     }
 }
 
