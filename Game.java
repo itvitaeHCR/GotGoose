@@ -36,21 +36,26 @@ public class Game {
                 + ConColor.BLUE + "\n\t4: BLUE;" + ConColor.PURPLE + "\n\t5: PURPLE;" + ConColor.CYAN + "\n\t6: CYAN."
                 + ConColor.RESET + "\nYour choice:\t");
         int pickColor = player.nextInt();
-        String pickedColor = "";
         switch (pickColor) {
-            case 1 -> pickedColor = "RED";
-            case 2 -> pickedColor = "GREEN";
-            case 3 -> pickedColor = "YELLOW";
-            case 4 -> pickedColor = "BLUE";
-            case 5 -> pickedColor = "PURPLE";
-            case 6 -> pickedColor = "CYAN";
+            case 1:
+                Player RED = new Player("RED");
+                break;
+            case 2:
+                Player GREEN = new Player("GREEN");
+                break;
+            case 3:
+                Player YELLOW = new Player("YELLOW");
+                break;
+            case 4:
+                Player BLUE = new Player("BLUE");
+                break;
+            case 5:
+                Player PURPLE = new Player("PURPLE");
+                break;
+            case 6:
+                Player CYAN = new Player("CYAN");
+                break;
         }
-
-        int firstThrow = 1;
-        String playerName = pickedColor;
-        Player playerPick = new Player(pickedColor, firstThrow);
-        playerPick.setName = playerName;
-        System.out.println("Your player id is " + playerName);
 
     }
 

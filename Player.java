@@ -4,11 +4,11 @@ public class Player {
 
 
     private final String color;
-    private final int initOrder;
+    //private final int initOrder;
     public String setName;
 
-    Player(String color, int initOrder) {
-        this.initOrder = initOrder;
+    Player(String color) {
+        //this.initOrder = initOrder;
         this.color = color;
         int location = 0;
         boolean won;
