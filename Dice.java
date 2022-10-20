@@ -33,5 +33,14 @@ public class Dice {
         Random die = new Random();
         return (die.nextInt(6)) +1;
     }
+
+    public static void checkInitRoll() {
+        //
+    }
+
+    public static void checkFirstRoll() {
+        // if 4+5 > go to x
+        // if 3+6 > go to y
+    }
 }
 

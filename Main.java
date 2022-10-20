@@ -1,6 +1,9 @@
+// LEFT OFF AT GAME > SWITCH > INIT ORDERS
+
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         // during WIP phase: check if works
             // Dice.java
