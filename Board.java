@@ -18,12 +18,32 @@ public class Board {
      * printBoard() prints the game board by printing specific characters for default and special panels.
      */
     public static void printBoard() {
-        for (int i = 0; i < panels.length; i++) {
-            switch (i) {
-            case 6, 19, 31, 42, 52, 58 -> System.out.print("x  ");
-            case 0, 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59, 63 -> System.out.print("@  ");
-            default -> System.out.print("O  ");
+        System.out.println();
+        System.out.println("=".repeat(panels.length*3));
+        for (Panel x : panels) {
+            if (x.id == Player.locations[0]) {
+                System.out.print(Player.ConColor.RED_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+            } else if (x.id == Player.locations[1]) {
+                System.out.print(Player.ConColor.YELLOW_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+            } else if (x.id == Player.locations[2]) {
+                System.out.print(Player.ConColor.GREEN_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+            } else if (x.id == Player.locations[3]) {
+                System.out.print(Player.ConColor.BLUE_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+            } else if (x.id == Player.locations[4]) {
+                System.out.print(Player.ConColor.PURPLE_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+            } else if (x.id == Player.locations[5]) {
+                System.out.print(Player.ConColor.CYAN_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+            } else {
+                System.out.print(x.panelImage);
             }
+        }
+        System.out.println();
+        System.out.println("=".repeat(panels.length*3));
+        System.out.println();
+    }
+    public static void printBoardId() {
+        for (Panel x : panels) {
+            System.out.print(x.id + " ");
         }
         System.out.println();
     }
@@ -34,11 +54,17 @@ public class Board {
  * Basic panels on the board are assigned an id, and checks if the panel is already taken by another player.
  */
 class Panel {
+
+    public String panelImage;
     byte id;
     boolean taken;
 
     Panel(byte id) {
         this.id = id;
+        setPanelImage();
+        }
+    public void setPanelImage() {
+        panelImage = " O ";
     }
 }
 
@@ -49,6 +75,11 @@ class SpecPanel extends Panel { // 0, 6 | 19 | 31 | 42 | 52 | 58, 63
 
     SpecPanel(byte id) {
         super(id);
+        setPanelImage();
+    }
+    @Override
+    public void setPanelImage() {
+        panelImage = " X ";
     }
 }
 
@@ -60,8 +91,14 @@ class GoosePanel extends SpecPanel { // 5 | 9 | 14 | 18 | 23 | 27 | 32 | 36 | 41
     GoosePanel(byte id) {
         super(id);
         int walk = Dice.lastRoll;
+        setPanelImage();
+    }
+    @Override
+    public void setPanelImage() {
+        panelImage = " @ ";
     }
 }
+
 
 
 // lol ganzenbord magie xor 63

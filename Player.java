@@ -1,18 +1,18 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player {
 
 
-    private final String color;
+    public static String color;
     //private final int initOrder;
-    public String setName;
+    public String Name;
     public byte initOrder;
+    static int[] locations = new int[6];
+    static int location = 0;
 
     Player(String color) {
         byte initOrder;
         this.color = color;
-        int location = 0;
         boolean won;
 
     }
@@ -30,6 +30,7 @@ public class Player {
                 System.out.println(ConColor.RED + "Welcome player RED");
                 RED.initOrder = (byte) Dice.Roll();
                 Game.firstRolls[0] = RED.initOrder;
+                locations[0] = RED.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + RED.initOrder);
                 System.out.println(ConColor.RESET);
                 break;
@@ -39,6 +40,7 @@ public class Player {
                 System.out.println();
                 YELLOW.initOrder = (byte) Dice.Roll();
                 Game.firstRolls[1] = YELLOW.initOrder;
+                locations[1] = 2;//YELLOW.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + YELLOW.initOrder);
                 System.out.println(ConColor.RESET);
                 break;
@@ -47,6 +49,7 @@ public class Player {
                 System.out.println(ConColor.GREEN + "Welcome player GREEN");
                 GREEN.initOrder = (byte) Dice.Roll();
                 Game.firstRolls[2] = GREEN.initOrder;
+                locations[2] = 5; //GREEN.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + GREEN.initOrder);
                 System.out.println(ConColor.RESET);
                 break;
@@ -55,6 +58,7 @@ public class Player {
                 System.out.println(ConColor.BLUE + "Welcome player BLUE");
                 BLUE.initOrder = (byte) Dice.Roll();
                 Game.firstRolls[3] = BLUE.initOrder;
+                locations[3] = 23; //BLUE.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + BLUE.initOrder);
                 System.out.println(ConColor.RESET);
                 break;
@@ -63,6 +67,7 @@ public class Player {
                 System.out.println(ConColor.PURPLE + "Welcome player PURPLE");
                 PURPLE.initOrder = (byte) Dice.Roll();
                 Game.firstRolls[4] = PURPLE.initOrder;
+                locations[4] = 55; //PURPLE.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + PURPLE.initOrder);
                 System.out.println(ConColor.RESET);
                 break;
@@ -71,6 +76,7 @@ public class Player {
                 System.out.println(ConColor.CYAN + "Welcome player CYAN");
                 CYAN.initOrder = (byte) Dice.Roll();
                 Game.firstRolls[5] = CYAN.initOrder;
+                locations[5] = 43; //CYAN.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + CYAN.initOrder);
                 System.out.println(ConColor.RESET);
                 break;
@@ -78,12 +84,9 @@ public class Player {
                 System.out.println("Please cooperate.");
                 playerSetUp();
         }
-        for(int i :Game.firstRolls) {
-            if (i != 0) {
-                System.out.print(i + "\t");
-            }
+
     }
-}
+
 
     class ConColor { // found on https://stackoverflow.com/a/45444716
         // Reset
@@ -97,13 +100,13 @@ public class Player {
         public static final String PURPLE = "\033[0;35m";  // PURPLE
         public static final String CYAN = "\033[0;36m";    // CYAN
 
-        // Bold
-        public static final String RED_BOLD = "\033[1;31m";    // RED
-        public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
-        public static final String YELLOW_BOLD = "\033[1;33m"; // YELLOW
-        public static final String BLUE_BOLD = "\033[1;34m";   // BLUE
-        public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
-        public static final String CYAN_BOLD = "\033[1;36m";   // CYAN
+        // Background
+        public static final String RED_BACK = "\033[41m";    // RED
+        public static final String GREEN_BACK = "\033[42m";  // GREEN
+        public static final String YELLOW_BACK = "\033[43m"; // YELLOW
+        public static final String BLUE_BACK = "\033[44m";   // BLUE
+        public static final String PURPLE_BACK = "\033[45m"; // PURPLE
+        public static final String CYAN_BACK = "\033[46m";   // CYAN
     }
 }
 

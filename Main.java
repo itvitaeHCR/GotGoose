@@ -7,12 +7,15 @@ public class Main {
     public static void main(String[] args) {
         // during WIP phase: check if works
             // Dice.java
-        System.out.println(Dice.lastRoll());   // 2 dice, full throw
-        System.out.println(Dice.Roll());       // 1 die, init throw
+//        System.out.println(Dice.lastRoll());   // 2 dice, full throw
+//        System.out.println(Dice.Roll());       // 1 die, init throw
             // Board.java
+        Board board = new Board();
         Board.printBoard();                     // plain board printed
+        Board.printBoardId();
             // Game
         Game.startGame();
+        Board.printBoard();
             // Player
         System.out.println();
     }

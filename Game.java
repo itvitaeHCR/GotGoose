@@ -18,12 +18,12 @@ public class Game {
      * initiative() loops through given number of players and calls pickPlayer() for each player.
      */
     public static void initiative() {
-        System.out.println("You have " + players + " players in your game." +
-                "\nPlease each throw a die to set up initiative order by picking a pawn color from the list. " +
+        System.out.println("Please each throw a die to set up initiative order by picking a pawn color from the list. " +
                 "Each color can be chosen once.");
         for (int i = 0; i < players; i++) {
             pickPlayer();
         }
+        Dice.checkInitRoll();
 
     }
 

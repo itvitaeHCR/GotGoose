@@ -35,7 +35,11 @@ public class Dice {
     }
 
     public static void checkInitRoll() {
-        //
+        for(int i :Game.firstRolls) {
+            if (i != 0) {
+                System.out.print(i + "\t");
+            }
+        }
     }
 
     public static void checkFirstRoll() {
