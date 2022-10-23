@@ -2,7 +2,7 @@
 
 public class Game {
     static int players;
-    static int[] firstRolls = new int[6];
+
 
     /**
      * startGame() encompasses the setup phase of a game. It asks for a number of players and makes all necessary
@@ -23,8 +23,6 @@ public class Game {
         for (int i = 0; i < players; i++) {
             pickPlayer();
         }
-        Dice.checkInitRoll();
-
     }
 
     /**
@@ -33,5 +31,6 @@ public class Game {
      */
     public static void pickPlayer() {
         Player.playerSetUp();
+        // if nothing else needed, remove this middle-man method
     }
 }

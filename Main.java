@@ -1,4 +1,4 @@
-// LEFT OFF AT GAME > SWITCH > INIT ORDERS
+// LEFT OFF AT GAME > SWITCH > INIT ORDERS >> DICE CHECKINITROLL
 
 import java.util.Scanner;
 
@@ -11,11 +11,11 @@ public class Main {
 //        System.out.println(Dice.Roll());       // 1 die, init throw
             // Board.java
         Board board = new Board();
-        Board.printBoard();                     // plain board printed
-        Board.printBoardId();
+        board.printBoard();                     // plain board printed
+        board.printBoardId();
             // Game
         Game.startGame();
-        Board.printBoard();
+        board.printBoard();
             // Player
         System.out.println();
     }

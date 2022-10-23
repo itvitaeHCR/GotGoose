@@ -8,8 +8,9 @@ public class Dice {
     public static void setLastRoll(int lastRoll) {
         Dice.lastRoll = lastRoll;
     }
-
+    static Random die = new Random();
     static int lastRoll;
+    static float[] firstRolls = new float[6];
 
     /**
      * calls roll() twice, saving each value separately and combining them into the total sum.
@@ -17,8 +18,8 @@ public class Dice {
      * @return totalThrow
      */
     public static int lastRoll() {
-        int roll1 = Roll();          // generate throw
-        int roll2 = Roll();          // generate *separate* throw
+        int roll1 = (int)Roll();          // generate throw
+        int roll2 = (int)Roll();          // generate *separate* throw
         int totalRoll = roll1 + roll2;
         setLastRoll(totalRoll);
         return totalRoll;
@@ -29,17 +30,8 @@ public class Dice {
      * simulates a throw of a die by generating a random number between 1 and 6
      * @return throw
      */
-    public static int Roll() {
-        Random die = new Random();
-        return (die.nextInt(6)) +1;
-    }
-
-    public static void checkInitRoll() {
-        for(int i :Game.firstRolls) {
-            if (i != 0) {
-                System.out.print(i + "\t");
-            }
-        }
+    public static float Roll() {
+        return die.nextFloat(6) +1;
     }
 
     public static void checkFirstRoll() {

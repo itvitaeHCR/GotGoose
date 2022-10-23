@@ -19,26 +19,30 @@ public class Board {
      */
     public static void printBoard() {
         System.out.println();
-        System.out.println("=".repeat(panels.length*3));
+        System.out.println("=".repeat(panels.length*3 + 6));
         for (Panel x : panels) {
-            if (x.id == Player.locations[0]) {
-                System.out.print(Player.ConColor.RED_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
-            } else if (x.id == Player.locations[1]) {
-                System.out.print(Player.ConColor.YELLOW_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
-            } else if (x.id == Player.locations[2]) {
-                System.out.print(Player.ConColor.GREEN_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
-            } else if (x.id == Player.locations[3]) {
-                System.out.print(Player.ConColor.BLUE_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
-            } else if (x.id == Player.locations[4]) {
-                System.out.print(Player.ConColor.PURPLE_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
-            } else if (x.id == Player.locations[5]) {
-                System.out.print(Player.ConColor.CYAN_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+            if (x.id > 0) {
+                if (x.id == Player.locations[0]) {
+                    System.out.print(Player.ConColor.RED_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+                } else if (x.id == Player.locations[1]) {
+                    System.out.print(Player.ConColor.YELLOW_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+                } else if (x.id == Player.locations[2]) {
+                    System.out.print(Player.ConColor.GREEN_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+                } else if (x.id == Player.locations[3]) {
+                    System.out.print(Player.ConColor.BLUE_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+                } else if (x.id == Player.locations[4]) {
+                    System.out.print(Player.ConColor.PURPLE_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+                } else if (x.id == Player.locations[5]) {
+                    System.out.print(Player.ConColor.CYAN_BACK + "[" + x.panelImage + "]" + Player.ConColor.RESET);
+                } else {
+                    System.out.print(x.panelImage);
+                }
             } else {
                 System.out.print(x.panelImage);
             }
         }
         System.out.println();
-        System.out.println("=".repeat(panels.length*3));
+        System.out.println("=".repeat(panels.length*3 + 6));
         System.out.println();
     }
     public static void printBoardId() {
