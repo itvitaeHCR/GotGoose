@@ -1,5 +1,3 @@
-
-
 public class Game {
     static int players;
 

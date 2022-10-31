@@ -1,8 +1,7 @@
-import java.util.Scanner;
-
 public class Player {
 
 
+    public static Player[] players = new Player[6];
     public String color;
     public float initOrder;
     static int[] locations = new int[6];
@@ -24,61 +23,61 @@ public class Player {
         switch (pickColor) {
             case 1:
                 Player RED = new Player("RED");
+                players[0] = RED;
                 System.out.println(ConColor.RED + "Welcome player RED");
                 RED.initOrder = Dice.Roll();
                 Dice.firstRolls[0] = RED.initOrder;
-                locations[0] = RED.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + (int) RED.initOrder);
                 System.out.println("Your tie-breaker modifier is " + (RED.initOrder - (int) (RED.initOrder)));
                 System.out.println(ConColor.RESET);
                 break;
             case 2:
                 Player YELLOW = new Player("YELLOW");
+                players[1] = YELLOW;
                 System.out.println(ConColor.YELLOW + "Welcome player YELLOW");
                 System.out.println();
                 YELLOW.initOrder = Dice.Roll();
                 Dice.firstRolls[1] = YELLOW.initOrder;
-                locations[1] = 2;//YELLOW.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + (int) YELLOW.initOrder);
                 System.out.println("Your tie-breaker modifier is " + (YELLOW.initOrder - (int) (YELLOW.initOrder)));
                 System.out.println(ConColor.RESET);
                 break;
             case 3:
                 Player GREEN = new Player("GREEN");
+                players[2] = GREEN;
                 System.out.println(ConColor.GREEN + "Welcome player GREEN");
                 GREEN.initOrder = Dice.Roll();
                 Dice.firstRolls[2] = GREEN.initOrder;
-                locations[2] = 5; //GREEN.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + (int) GREEN.initOrder);
                 System.out.println("Your tie-breaker modifier is " + (GREEN.initOrder - (int) (GREEN.initOrder)));
                 System.out.println(ConColor.RESET);
                 break;
             case 4:
                 Player BLUE = new Player("BLUE");
+                players[3] = BLUE;
                 System.out.println(ConColor.BLUE + "Welcome player BLUE");
                 BLUE.initOrder = Dice.Roll();
                 Dice.firstRolls[3] = BLUE.initOrder;
-                locations[3] = 23; //BLUE.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + (int) BLUE.initOrder);
                 System.out.println("Your tie-breaker modifier is " + (BLUE.initOrder - (int) (BLUE.initOrder)));
                 System.out.println(ConColor.RESET);
                 break;
             case 5:
                 Player PURPLE = new Player("PURPLE");
+                players[4] = PURPLE;
                 System.out.println(ConColor.PURPLE + "Welcome player PURPLE");
                 PURPLE.initOrder = Dice.Roll();
                 Dice.firstRolls[4] = PURPLE.initOrder;
-                locations[4] = 55; //PURPLE.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + (int) PURPLE.initOrder);
                 System.out.println("Your tie-breaker modifier is " + (PURPLE.initOrder - (int) (PURPLE.initOrder)));
                 System.out.println(ConColor.RESET);
                 break;
             case 6:
                 Player CYAN = new Player("CYAN");
+                players[5] = CYAN;
                 System.out.println(ConColor.CYAN + "Welcome player CYAN");
                 CYAN.initOrder = Dice.Roll();
                 Dice.firstRolls[5] = CYAN.initOrder;
-                locations[5] = 43; //CYAN.location; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println("Your initiative order roll is " + (int) CYAN.initOrder);
                 System.out.println("Your tie-breaker modifier is " + (CYAN.initOrder - (int) (CYAN.initOrder)));
                 System.out.println(ConColor.RESET);

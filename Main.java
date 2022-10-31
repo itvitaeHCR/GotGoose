@@ -1,5 +1,3 @@
-// LEFT OFF AT GAME > SWITCH > INIT ORDERS >> DICE CHECKINITROLL
-
 import java.util.Scanner;
 
 public class Main {
@@ -21,25 +19,10 @@ public class Main {
     }
 }
 
-/** init phase
- * generate new player
- * set player color
- * set player initiative order
- * set player location to 0
- */
+// CURRENT TASK: TRACK INITIATIVE ORDER + TURNS
+// LinkedHashSet > iteration = insertion order
 
-/** game phase 1
- * select current player
- * check if bool skipTurn = false (if true, skip following steps)
- */
 
-/** game phase 2
- * current player rolls dice
- */
-
-/** game phase 3
- * player moves
- * board checks on location for special actions
- * IF special action: execute special action
- * end turn, call phase 1 for next player
- */
+//void eten(Vogel v) {                  >> player meegeven
+//    System.out.println("eten");
+//}

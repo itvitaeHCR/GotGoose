@@ -39,3 +39,29 @@ gevangenis >
 dood > terug naar 0
 finish
 doornstruik >
+
+
+
+
+/** init phase
+ * generate new player
+ * set player color
+ * set player initiative order
+ * set player location to 0
+ */
+
+/** game phase 1
+ * select current player
+ * check if bool skipTurn = false (if true, skip following steps)
+ */
+
+/** game phase 2
+ * current player rolls dice
+ */
+
+/** game phase 3
+ * player moves
+ * board checks on location for special actions
+ * IF special action: execute special action
+ * end turn, call phase 1 for next player
+ */
