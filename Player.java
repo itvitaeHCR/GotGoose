@@ -1,14 +1,18 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class Player {
 
+    static ArrayList<Player> pawns = new ArrayList<>();
 
-    public static Player[] players = new Player[6];
     public String color;
     public float initOrder;
     static int[] locations = new int[6];
     static int location = 0;
 
-    Player(String color) {
-        this.color = color;
+    Player(String iColor) {
+        this.color = iColor;
         boolean won;
 
     }
@@ -23,7 +27,7 @@ public class Player {
         switch (pickColor) {
             case 1:
                 Player RED = new Player("RED");
-                players[0] = RED;
+                pawns.add(RED);
                 System.out.println(ConColor.RED + "Welcome player RED");
                 RED.initOrder = Dice.Roll();
                 Dice.firstRolls[0] = RED.initOrder;
@@ -33,9 +37,8 @@ public class Player {
                 break;
             case 2:
                 Player YELLOW = new Player("YELLOW");
-                players[1] = YELLOW;
+                pawns.add(YELLOW);
                 System.out.println(ConColor.YELLOW + "Welcome player YELLOW");
-                System.out.println();
                 YELLOW.initOrder = Dice.Roll();
                 Dice.firstRolls[1] = YELLOW.initOrder;
                 System.out.println("Your initiative order roll is " + (int) YELLOW.initOrder);
@@ -44,7 +47,7 @@ public class Player {
                 break;
             case 3:
                 Player GREEN = new Player("GREEN");
-                players[2] = GREEN;
+                pawns.add(GREEN);
                 System.out.println(ConColor.GREEN + "Welcome player GREEN");
                 GREEN.initOrder = Dice.Roll();
                 Dice.firstRolls[2] = GREEN.initOrder;
@@ -54,7 +57,7 @@ public class Player {
                 break;
             case 4:
                 Player BLUE = new Player("BLUE");
-                players[3] = BLUE;
+                pawns.add(BLUE);
                 System.out.println(ConColor.BLUE + "Welcome player BLUE");
                 BLUE.initOrder = Dice.Roll();
                 Dice.firstRolls[3] = BLUE.initOrder;
@@ -64,7 +67,7 @@ public class Player {
                 break;
             case 5:
                 Player PURPLE = new Player("PURPLE");
-                players[4] = PURPLE;
+                pawns.add(PURPLE);
                 System.out.println(ConColor.PURPLE + "Welcome player PURPLE");
                 PURPLE.initOrder = Dice.Roll();
                 Dice.firstRolls[4] = PURPLE.initOrder;
@@ -74,7 +77,7 @@ public class Player {
                 break;
             case 6:
                 Player CYAN = new Player("CYAN");
-                players[5] = CYAN;
+                pawns.add(CYAN);
                 System.out.println(ConColor.CYAN + "Welcome player CYAN");
                 CYAN.initOrder = Dice.Roll();
                 Dice.firstRolls[5] = CYAN.initOrder;
@@ -86,15 +89,61 @@ public class Player {
                 System.out.println("Please cooperate.");
                 playerSetUp();
         }
-
     }
 
+    /**
+     * sorts the ArrayList pawns in descending order of initiative roll.
+     * adapted from tutorial <a href="https://www.youtube.com/watch?v=wzWFQTLn8hI">"Sort ArrayList of Objects"</a>
+     */
+    public static void initSort() {
+        Collections.sort(pawns, (o1, o2) -> Float.valueOf(o2.initOrder).compareTo(o1.initOrder));
+//        if needed, put this in its own method
+        for(int i = 0; i < pawns.size(); i++) {
+            System.out.println("Player " + pawns.get(i).color + " rolled initiative " + pawns.get(i).initOrder);
+        }
+    }
 
-    class ConColor { // found on https://stackoverflow.com/a/45444716
+    /**
+     * sets text color or text background to player color.
+     * adjusted from <a href="https://stackoverflow.com/a/45444716">Stackoverflow ConsoleColor</a>
+     */
+    class ConColor {
+
+        public String resetConColor() {
+            String RESET = "\033[0m";
+            return RESET;
+        }
+
+        public void textConColor(String iColor) {
+            String textColor = "";
+            switch (iColor) {
+                case RED -> textColor = "\033[0;31m";
+                case YELLOW -> textColor = "\033[0;32m";
+                case GREEN -> textColor = "\033[0;33m";
+                case BLUE -> textColor = "\033[0;34m";
+                case PURPLE -> textColor = "\033[0;35m";
+                case CYAN -> textColor = "\033[0;36m";
+            }
+            //return textColor;
+        }
+
+        public String backConColor(String iColor) {
+            String backColor = "";
+            switch (iColor) {
+                case RED -> backColor = "\033[0;41m";
+                case YELLOW -> backColor = "\033[0;42m";
+                case GREEN -> backColor = "\033[0;43m";
+                case BLUE -> backColor = "\033[0;44m";
+                case PURPLE -> backColor = "\033[0;45m";
+                case CYAN -> backColor = "\033[0;46m";
+            }
+            return backColor;
+        }
+
         // Reset
         public static final String RESET = "\033[0m";  // Text Reset
 
-        // Regular Colors
+        // Text
         public static final String RED = "\033[0;31m";     // RED
         public static final String GREEN = "\033[0;32m";   // GREEN
         public static final String YELLOW = "\033[0;33m";  // YELLOW

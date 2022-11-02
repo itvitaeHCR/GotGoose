@@ -115,6 +115,7 @@ class StartPanel extends SpecPanel {
     StartPanel(byte id) {
         super(id);
         setPanelImage();
+        // for each player print [ p ] with background color
     }
 }
 

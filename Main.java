@@ -9,8 +9,8 @@ public class Main {
 //        System.out.println(Dice.Roll());       // 1 die, init throw
             // Board.java
         Board board = new Board();
-        board.printBoard();                     // plain board printed
-        board.printBoardId();
+        //board.printBoard();                     // plain board printed
+        //board.printBoardId();
             // Game
         Game.startGame();
         board.printBoard();
@@ -18,11 +18,3 @@ public class Main {
         System.out.println();
     }
 }
-
-// CURRENT TASK: TRACK INITIATIVE ORDER + TURNS
-// LinkedHashSet > iteration = insertion order
-
-
-//void eten(Vogel v) {                  >> player meegeven
-//    System.out.println("eten");
-//}
