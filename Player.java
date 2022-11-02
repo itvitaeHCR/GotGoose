@@ -4,6 +4,8 @@ import java.util.Collections;
 public class Player {
 
     static ArrayList<Player> players = new ArrayList<>();
+    enum Colors {RED, YELLOW, GREEN, BLUE, PURPLE, CYAN}
+
     public String color;
     public float initOrder;
     static int[] locations = new int[6];                                            // redundant: remove when possible
@@ -45,33 +47,18 @@ public class Player {
     }
 
     public static void playerSetUp() {
-        System.out.println("Pick a color! Your options are: "
-                + ConColor.RED + "\t\t1: RED" + ConColor.YELLOW + "\t\t2: YELLOW" + ConColor.GREEN + "\t\t3: GREEN"
-                + ConColor.BLUE + "\t\t4: BLUE" + ConColor.PURPLE + "\t\t5: PURPLE" + ConColor.CYAN + "\t\t6: CYAN"
-                + ConColor.RESET + "\nYour choice:\t");
         int pickColor = Main.scanner.nextInt();
         switch (pickColor) {
-            case 1:
-                genPlayer("RED");
-                break;
-            case 2:
-                genPlayer("YELLOW");
-                break;
-            case 3:
-                genPlayer("GREEN");
-                break;
-            case 4:
-                genPlayer("BLUE");
-                break;
-            case 5:
-                genPlayer("PURPLE");
-                break;
-            case 6:
-                genPlayer("CYAN");
-                break;
-            default:
+            case 1 -> genPlayer("RED");
+            case 2 -> genPlayer("YELLOW");
+            case 3 -> genPlayer("GREEN");
+            case 4 -> genPlayer("BLUE");
+            case 5 -> genPlayer("PURPLE");
+            case 6 -> genPlayer("CYAN");
+            default -> {
                 System.out.println("Please cooperate.");
                 playerSetUp();
+            }
         }
     }
 
@@ -94,6 +81,7 @@ public class Player {
                 "! Your initiative order roll is " + (int) Player.getPlayer(iColor).initOrder +
                 " with a modifier of " + (Player.getPlayer(iColor).initOrder - (int) (Player.getPlayer(iColor).initOrder)));
         ConColor.resetConColor();
+        System.out.println();
     }
 
 }
@@ -106,41 +94,31 @@ public class Player {
 class ConColor {
 
     public static void resetConColor() {
-        System.out.println("\033[0m");
+        System.out.print("\033[0m");
     }
 
     public static void textConColor(String iColor) {
         switch (iColor) {
-            case "RED" -> System.out.println("\033[0;31m");
-            case "YELLOW" -> System.out.println("\033[0;32m");
-            case "GREEN" -> System.out.println("\033[0;33m");
-            case "BLUE" -> System.out.println("\033[0;34m");
-            case "PURPLE" -> System.out.println("\033[0;35m");
-            case "CYAN" -> System.out.println("\033[0;36m");
+            case "RED" -> System.out.print("\033[0;31m");
+            case "YELLOW" -> System.out.print("\033[0;32m");
+            case "GREEN" -> System.out.print("\033[0;33m");
+            case "BLUE" -> System.out.print("\033[0;34m");
+            case "PURPLE" -> System.out.print("\033[0;35m");
+            case "CYAN" -> System.out.print("\033[0;36m");
         }
     }
 
     public static void backConColor(String iColor) {
         switch (iColor) {
-            case "RED" -> System.out.println("\033[0;41m");
-            case "YELLOW" -> System.out.println("\033[0;42m");
-            case "GREEN" -> System.out.println("\033[0;43m");
-            case "BLUE" -> System.out.println("\033[0;44m");
-            case "PURPLE" -> System.out.println("\033[0;45m");
-            case "CYAN" -> System.out.println("\033[0;46m");
+            case "RED" -> System.out.print("\033[0;41m");
+            case "YELLOW" -> System.out.print("\033[0;42m");
+            case "GREEN" -> System.out.print("\033[0;43m");
+            case "BLUE" -> System.out.print("\033[0;44m");
+            case "PURPLE" -> System.out.print("\033[0;45m");
+            case "CYAN" -> System.out.print("\033[0;46m");
         }
     }
 
-    // Reset
-    public static final String RESET = "\033[0m";  // Text Reset
-
-    // Text
-    public static final String RED = "\033[0;31m";     // RED
-    public static final String GREEN = "\033[0;32m";   // GREEN
-    public static final String YELLOW = "\033[0;33m";  // YELLOW
-    public static final String BLUE = "\033[0;34m";    // BLUE
-    public static final String PURPLE = "\033[0;35m";  // PURPLE
-    public static final String CYAN = "\033[0;36m";    // CYAN
 
     // Background
     public static final String RED_BACK = "\033[41m";    // RED
@@ -150,9 +128,3 @@ class ConColor {
     public static final String PURPLE_BACK = "\033[45m"; // PURPLE
     public static final String CYAN_BACK = "\033[46m";   // CYAN
 }
-
-/**
- *         player-related values to be put in Panel
- *         boolean won = false;
- *         boolean skipTurn = false;
- */

@@ -21,7 +21,7 @@ public class Game {
         System.out.println("Please each throw a die to set up initiative order by picking a pawn color from the list. "
                 + "Each color can be chosen once.");
         for (int i = 0; i < players; i++) {
-            pickPlayer();
+            colorMenu();
         }
     }
 
@@ -29,8 +29,16 @@ public class Game {
      * pickPlayer() has each Player instance pick a color, assigns a corresponding id,
      * and generates an initiative order value.
      */
-    public static void pickPlayer() {
+    public static void colorMenu() {
+        System.out.println("Pick a color! Your options are: ");
+        int i = 1;
+        for (Player.Colors x :Player.Colors.values()) {
+            ConColor.textConColor(x.toString());
+            System.out.print("\t\t" + i + ": "+ x);
+            ConColor.resetConColor();
+            i++;
+        }
+        System.out.println();
         Player.playerSetUp();
-
     }
 }
