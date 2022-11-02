@@ -10,7 +10,7 @@ public class Dice {
     }
     static Random die = new Random();
     static int lastRoll;
-    static float[] firstRolls = new float[6];
+
 
     /**
      * calls roll() twice, saving each value separately and combining them into the total sum.

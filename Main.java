@@ -16,5 +16,6 @@ public class Main {
         board.printBoard();
             // Player
         System.out.println();
+
     }
 }
