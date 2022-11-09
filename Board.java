@@ -28,23 +28,54 @@ public class Board {
     public static void printBoard() {
         System.out.println();
         System.out.println("=".repeat(panels.length * 3 + 6));
-        for (int r = 0; r < Player.players.size(); r++) {
-            int loc = Player.players.get(r).getLocation();
-            if (loc == 0) {
-                printPanelZero();
-            } else {
-                for (Panel x : panels) {
-                    if (loc == x.id) {
-                        printPlayerPanel(r, x);
-                    } else {
-                        System.out.print(x.panelImage);
+        for (int r = 0; r < Player.players.size(); r++) {       // for each player-index
+            int loc = Player.players.get(r).getLocation();      // loc = location of player at index
+
+            for (Panel x : panels) {
+                if (x.id == 0) {
+                    if (x.id == loc) {
+                        printPanelZero(r);
                     }
+                } else if (x.id > 0) {
+                    if (x.id == loc) {
+                        printPlayerPanel(r, x);
+                    }
+                } else {
+                    System.out.print(x.panelImage);
                 }
             }
+
+
+//                if (x.id == loc) {
+//                    if (x.id == 0) {
+//                        printPanelZero(r);
+//                    } else if (x.id > 0) {
+//                        printPlayerPanel(r, x);
+//                    }
+//                } else {
+//                    System.out.print(x.panelImage);
+//                }
+
+
+
+//            if (loc == 0) {                                 // AND if loc equals zero
+//                printPanelZero(r);                              // print a zero-panel for each player on zero
+//            } else if (loc > 0){
+//                for (Panel x : panels) {                            // for each Panel
+//                    if (x.id == loc) {                              // if loc is equal to panel id
+//                        if (loc != 0) {                                        // if loc NOT equal to zero BUT equal to panel id
+//                            printPlayerPanel(r, x);                         // print player-colored panel
+//                        } else {                                        // if panel id equals no loc
+//                            System.out.print(x.panelImage);                 // print non-color panel image
+//                        }
+//                    }
+//                }
+//            }
+//        }
+            System.out.println();
+            System.out.println("=".repeat(panels.length * 3 + 6));
+            System.out.println();
         }
-        System.out.println();
-        System.out.println("=".repeat(panels.length*3 + 6));
-        System.out.println();
     }
 
 //            if (x.id > 0) {                                                // prints each loc (opt. with Player)
@@ -64,9 +95,6 @@ public class Board {
 //                    ConColor.resetConColor();
 //                    System.out.print(x.panelImage);
 //                }
-//            } else {
-//                System.out.print(x.panelImage);
-//            }
 
 
 
@@ -78,13 +106,11 @@ public class Board {
         ConColor.resetConColor();
     }
 
-    private static void printPanelZero() {
-        for (int i = 0; i < Player.players.size(); i++) {
-            String y = Player.players.get(i).color;
-            ConColor.backConColor(y);
-            System.out.print("[ * ] ");
-            ConColor.resetConColor();
-        }
+    private static void printPanelZero(int r) {
+        String y = Player.players.get(r).color;
+        ConColor.backConColor(y);
+        System.out.print("[ * ] ");
+        ConColor.resetConColor();
         System.out.println();
     }
 

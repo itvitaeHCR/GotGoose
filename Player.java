@@ -9,9 +9,6 @@ public class Player {
     public String color;
     public float initOrder;
 
-
-
-    static int[] locations = new int[6];                                            // redundant: remove when possible
     public int location;
 
     // getters and setters
@@ -105,8 +102,8 @@ class ConColor {
     public static void textConColor(String iColor) {
         switch (iColor) {
             case "RED" -> System.out.print("\033[0;31m");
-            case "YELLOW" -> System.out.print("\033[0;32m");
-            case "GREEN" -> System.out.print("\033[0;33m");
+            case "YELLOW" -> System.out.print("\033[0;33m");
+            case "GREEN" -> System.out.print("\033[0;32m");
             case "BLUE" -> System.out.print("\033[0;34m");
             case "PURPLE" -> System.out.print("\033[0;35m");
             case "CYAN" -> System.out.print("\033[0;36m");
@@ -116,8 +113,8 @@ class ConColor {
     public static void backConColor(String iColor) {
         switch (iColor) {
             case "RED" -> System.out.print("\033[0;41m");
-            case "YELLOW" -> System.out.print("\033[0;42m");
-            case "GREEN" -> System.out.print("\033[0;43m");
+            case "YELLOW" -> System.out.print("\033[0;43m");
+            case "GREEN" -> System.out.print("\033[0;42m");
             case "BLUE" -> System.out.print("\033[0;44m");
             case "PURPLE" -> System.out.print("\033[0;45m");
             case "CYAN" -> System.out.print("\033[0;46m");
