@@ -8,8 +8,11 @@ public class Player {
 
     public String color;
     public float initOrder;
+
+
+
     static int[] locations = new int[6];                                            // redundant: remove when possible
-    static int location = 0;
+    public int location;
 
     // getters and setters
     public String getColor() {
@@ -24,17 +27,19 @@ public class Player {
     public void setInitOrder(float initOrder) {
         this.initOrder = initOrder;
     }
-    public static int getLocation() {
+    public int getLocation() {
         return location;
     }
-    public static void setLocation(int location) {
-        Player.location = location;
+    public void setLocation(int location) {
+        this.location = location;
     }
+
 
 
 
     Player(String iColor) {
         this.color = iColor;
+        location = 0;
         boolean won;
 
     }

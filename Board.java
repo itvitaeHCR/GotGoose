@@ -27,33 +27,68 @@ public class Board {
      */
     public static void printBoard() {
         System.out.println();
-        System.out.println("=".repeat(panels.length*3 + 6));
-        for (Panel x : panels) {
-            if (x.id > 0) {
-                if (x.id == Player.locations[0]) {
-                    System.out.print(ConColor.RED_BACK + "[" + x.panelImage + "]");
-                } else if (x.id == Player.locations[1]) {
-                    System.out.print(ConColor.YELLOW_BACK + "[" + x.panelImage + "]");
-                } else if (x.id == Player.locations[2]) {
-                    System.out.print(ConColor.GREEN_BACK + "[" + x.panelImage + "]");
-                } else if (x.id == Player.locations[3]) {
-                    System.out.print(ConColor.BLUE_BACK + "[" + x.panelImage + "]");
-                } else if (x.id == Player.locations[4]) {
-                    System.out.print(ConColor.PURPLE_BACK + "[" + x.panelImage + "]");
-                } else if (x.id == Player.locations[5]) {
-                    System.out.print(ConColor.CYAN_BACK + "[" + x.panelImage + "]");
-                } else {
-                    ConColor.resetConColor();
-                    System.out.print(x.panelImage);
-                }
+        System.out.println("=".repeat(panels.length * 3 + 6));
+        for (int r = 0; r < Player.players.size(); r++) {
+            int loc = Player.players.get(r).getLocation();
+            if (loc == 0) {
+                printPanelZero();
             } else {
-                System.out.print(x.panelImage);
+                for (Panel x : panels) {
+                    if (loc == x.id) {
+                        printPlayerPanel(r, x);
+                    } else {
+                        System.out.print(x.panelImage);
+                    }
+                }
             }
         }
         System.out.println();
         System.out.println("=".repeat(panels.length*3 + 6));
         System.out.println();
     }
+
+//            if (x.id > 0) {                                                // prints each loc (opt. with Player)
+//                if (x.id == Player.locations[0]) {
+//                    System.out.print(ConColor.RED_BACK + "[" + x.panelImage + "]");
+//                } else if (x.id == Player.locations[1]) {
+//                    System.out.print(ConColor.YELLOW_BACK + "[" + x.panelImage + "]");
+//                } else if (x.id == Player.locations[2]) {
+//                    System.out.print(ConColor.GREEN_BACK + "[" + x.panelImage + "]");
+//                } else if (x.id == Player.locations[3]) {
+//                    System.out.print(ConColor.BLUE_BACK + "[" + x.panelImage + "]");
+//                } else if (x.id == Player.locations[4]) {
+//                    System.out.print(ConColor.PURPLE_BACK + "[" + x.panelImage + "]");
+//                } else if (x.id == Player.locations[5]) {
+//                    System.out.print(ConColor.CYAN_BACK + "[" + x.panelImage + "]");
+//                } else {
+//                    ConColor.resetConColor();
+//                    System.out.print(x.panelImage);
+//                }
+//            } else {
+//                System.out.print(x.panelImage);
+//            }
+
+
+
+
+    private static void printPlayerPanel(int r, Panel x) {
+        String y = Player.players.get(r).color;
+        ConColor.backConColor(y);
+        System.out.print(x.panelImage);
+        ConColor.resetConColor();
+    }
+
+    private static void printPanelZero() {
+        for (int i = 0; i < Player.players.size(); i++) {
+            String y = Player.players.get(i).color;
+            ConColor.backConColor(y);
+            System.out.print("[ * ] ");
+            ConColor.resetConColor();
+        }
+        System.out.println();
+    }
+
+
     public static void printBoardId() {
         for (Panel x : panels) {
             System.out.print(x.id + " ");

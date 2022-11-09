@@ -28,9 +28,9 @@ public class Dice {
 
     /**
      * simulates a throw of a die by generating a random number between 1 and 6
-     * @return throw
+     * @return roll
      */
-    public static float Roll() {
+    public static float Roll() {                                            // currently float for initiative purposes
         return die.nextFloat(6) +1;
     }
 
